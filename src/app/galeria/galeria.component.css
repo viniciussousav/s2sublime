@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.cointainer-component {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.menu-galeria {
+    border-right: solid black;
+    margin: 0px 0px;
+}
+.menu-galeria h4 {
+    padding: 0px 20px 20px 20px;
+}
+.menu-galeria ul {
+    list-style: none;
+}
+.menu-galeria ul li {
+    padding: 10px 0px;
+    background: linear-gradient(to right, black 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+.menu-galeria ul li a {
+    padding-left: 20px;
+}
+.menu-galeria ul li:hover {
+    background-position: left bottom;
+    color: aliceblue;
+}
+
+.itens-galeria {
+    display: flexbox;
+    width: 100%;
+    margin: 5px 100px;
+}
+
+.card {
+    float: left;
+    width: 14rem; 
+    height:22rem;
+    margin: 10px;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body a {
+    display: flex;
+    background-color: green;
+    margin: auto auto 0px auto;
+    vertical-align: bottom;
+    border: none;
+}
+
+.card-body a:hover {
+    background-color: white;
+    color: green;
+    border: solid green;
+    border-width: 0.5px;
+}
+
+#esgotadoBtn{
+    background-color: red;
+    border: none;
+}
+
+#esgotadoBtn:hover{
+    background-color: white;
+    color: red;
+}

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+.form-field{
+    display: flex;
+    flex-direction: column;
+    margin: auto auto;
+}
+
+.form-field input, button, h4{
+    font-family: 'Montserrat', sans-serif;
+    margin: 15px auto;
+    padding: 10px;
+}
+
+.form-field button{
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    
+}

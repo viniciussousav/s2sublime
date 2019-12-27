@@ -1,0 +1,23 @@
+<div class="cointainer-component">
+    <div class="menu-galeria">
+        <h4>Categorias</h4>
+        <ul>
+            <li *ngFor='let categoria of categorias; let i = index' (click)='searchByCategoria(categorias[i])'>
+                <a>{{categoria}}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="itens-galeria">
+       
+        <div *ngFor="let prod of queryResult" class="card">
+            <img src="../../assets/produto2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h6 class="card-title"><b>{{prod.nome}}</b></h6>
+                <p class="card-text">{{prod.descricao}}</p>
+                <a *ngIf="prod.quantidade > 0" href="#" class="btn btn-primary">Solicitar</a>
+                <a id="esgotadoBtn" *ngIf="prod.quantidade == 0" href="#" class="btn btn-primary">Esgotado</a>
+            </div>
+        </div>
+    </div>
+</div>

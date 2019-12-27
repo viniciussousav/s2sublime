@@ -1,0 +1,14 @@
+
+<div class = "form-field">
+
+    <h4>Cadastre um novo produto ao estoque</h4>
+
+    <input [(ngModel)]="produto.categoria" placeholder="Insira a categoria" type="text">
+    <input [(ngModel)]="produto.nome" placeholder="Insira nome do produto" type="text">
+    <input [(ngModel)]="produto.quantidade" placeholder="Insira a quantidade" type="number" min="1">
+    <input [(ngModel)]="produto.descricao" placeholder="Insira a descrição" type="text" maxlength="60">
+    <input [(ngModel)]="produto.tamanho" placeholder="Insira o tamanho" type="text">
+    
+    <button (click)="cadastrar(produto)">Cadastrar</button>
+    
+</div>

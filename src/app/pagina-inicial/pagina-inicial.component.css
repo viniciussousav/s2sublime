@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bem-vindo {
+    display: flex;
+    width: 100%;
+    height: 570px;
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(88, 87, 87, 0.7)), url("../../assets/lucas-alexander-KRyvaIxoUzs-unsplash.jpg");
+    background-color: black;
+    background-size: cover;
+
+    
+}
+
+@keyframes welcome{
+    from{
+        letter-spacing: -0.5em;
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+
+}
+
+#quem-somos {
+    display: flex;
+    width: fit-content;
+    margin: 10px 0px 20px 0px;
+}
+
+.container {
+    padding: 20px;
+    margin: auto auto;
+    display: flex;
+    border: solid white;
+    flex-direction: column;
+    animation: welcome 2s;
+}
+
+.container h1, p{
+    color: white;
+    margin: 30px auto 30px auto;
+    text-align: center;
+}
+
+.section-servicos {
+    display: flex;
+    padding: 20px auto 20px 50px;
+    flex-direction: row;
+    width: 100%;
+}
+.text-introducao {
+    flex-direction: column;
+    display: flex;
+    /* border-left: solid black; */
+    margin: 0px auto 50px 20px;
+    padding-left: 20px;
+    max-width: 500px;
+}
+
+
+
+.section-servicos {
+    display: flex;
+    height: 500px;
+    /* border: solid blue; */
+    /* border-bottom: solid black; */
+}
+
+@keyframes fade {
+    0% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.slideshow {
+    margin: 10px auto;
+    align-self: center;
+    /* border: solid purple; */
+}
+
+.slideshow img{
+    position: absolute;
+    left: 700px;
+    top:800px;
+    object-fit: fill;
+    border-radius: 5px;
+}
+.top {
+    animation-name: fade;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-direction: alternate;
+    
+}
+
+@keyframes apresentation-text{
+    from{opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+.text-introducao{
+    padding-top: 40px;
+    margin: auto auto auto 100px;
+    animation: apresentation-text 6s;
+    align-self: start;
+}
+
+.text-introducao p{
+    text-align: start;
+    display: flex;
+    color: black;
+    padding: 0;
+    margin: 20px 0px;
+    border-left: solid black;
+    padding-left: 10px;
+}
+
+.section-produtos {
+    
+    display: flex;
+    /* border: solid blue; */
+    margin: auto auto;
+    justify-content: start;
+}
+
+.carousel-container {
+    display: flex;
+    /* border: solid green; */
+    margin: 80px auto 80px 120px;
+}
+
+.section-produtos ngb-carousel{
+    background-color: black;
+    /* border: solid purple; */
+    display: flex;
+    width: 480px;
+    height: 301px;
+    border-radius: 5px;
+}
+
+.section-produtos ngb-carousel img{
+    object-fit: cover;
+    width: 480px;
+    height: 301px;
+    border-radius: 5px;
+}
+
+.section-produtos ngb-carousel:hover img{
+    opacity: 0.95;
+}
+
+.text-container {
+    animation: apresentation-text 6s;
+    padding-top: 20px;
+    margin-right: 160px;
+}
+
+.text-container h1{
+    /* border: solid green; */
+    text-align: end;
+}
+
+.text-container p{
+    color: black;
+    text-align: end;
+    padding-right: 10px;
+    margin-left: 100px;
+    /* border-left: solid purple; */
+    border-right: solid black;
+    margin-top: 20px;
+}
+
+
+
