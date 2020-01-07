@@ -10,12 +10,12 @@
 
     <div class="itens-galeria">
        
-        <div *ngFor="let prod of queryResult" class="card">
+        <div *ngFor="let prod of queryResult; let i = index" class="card">
             <img src="../../assets/produto2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h6 class="card-title"><b>{{prod.nome}}</b></h6>
                 <p class="card-text">{{prod.descricao}}</p>
-                <a *ngIf="prod.quantidade > 0" href="#" class="btn btn-primary">Solicitar</a>
+                <a *ngIf="prod.quantidade > 0" (click)='selectProduct(i)' href="javascript:void(0);"  class="btn btn-primary">Solicitar</a>
                 <a id="esgotadoBtn" *ngIf="prod.quantidade == 0" href="#" class="btn btn-primary">Esgotado</a>
             </div>
         </div>

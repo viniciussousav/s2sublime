@@ -4,6 +4,7 @@ export class Produto {
     descricao: string;
     tamanho: string;
     categoria: string;
+    imagem: File;
     
     constructor() {
         this.nome = "";
@@ -11,9 +12,10 @@ export class Produto {
         this.descricao = "";
         this.tamanho = "";
         this.categoria = "";
+        this.imagem = null;
     }
 
-    create(nome:string, qtd: number, desc:string, tam:string, ctg:string) {
+    create(nome:string, qtd: number, desc:string, tam:string, ctg:string, img: File) {
         this.nome = nome;
         this.quantidade = qtd;
         this.descricao = desc;

@@ -14,14 +14,23 @@ export class ProdutosComponent implements OnInit {
   produtos: Produto[];
   queryResult:Produto[];
   consulta: string;
+  editar: boolean[];
+  cadastrando: boolean;
 
   constructor(private produtoService:ProdutosService) { 
-      this.produtos = [];
-      this.categorias = [];
+      this.produtos = this.produtoService.getProdutos();
+      this.categorias = this.produtoService.getCategorias();
       this.queryResult = [];
+      this.cadastrando = false;
+      this.editar = [];
+      for(let i = 0; i < this.produtos.length; i++){
+        this.editar.push(false);
+      }
   }
 
   ngOnInit() {
+    this.produtos = this.produtoService.getProdutos();
+
   }
 
   cadastrar(produto:Produto){
@@ -34,6 +43,40 @@ export class ProdutosComponent implements OnInit {
       alert("Preencha todos os campos");
     }
     
+  }
+
+  deletar(index: number){
+    this.produtoService.deleteProduto(index);
+    this.produtos = this.produtoService.getProdutos();
+    this.categorias = this.produtoService.getCategorias();
+    this.editar.splice(index, 1);
+  }
+
+  aumentarUnidade(index: number){
+    this.produtoService.increaseProduto(index);
+  }
+
+  diminuirUnidade(index: number){
+    this.produtoService.decreaseProduto(index);
+  }
+
+
+  //funcões auxiliares
+
+  exibirCadastrar(){
+    this.cadastrando = !this.cadastrando;
+  }
+
+  editarProduto(index: number){
+    for(let i = 0; i < this.produtos.length; i++){
+      if(i == index && this.editar[index]){
+        this.editar[index] = false;
+      } else if(i == index && this.editar[index] == false) {
+        this.editar[index] = true;
+      } else{
+        this.editar[i] = false;
+      }
+    }
   }
 
   emptyField(produto: Produto): boolean {

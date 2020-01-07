@@ -1,14 +1,48 @@
 
-<div class = "form-field">
-
+<div id="cadastroHeader">
     <h4>Cadastre um novo produto ao estoque</h4>
+    <button (click)="exibirCadastrar()" id="comecarCadastro">Clique aqui para adicionar um novo produto ao estoque</button>
+</div>
 
+<div *ngIf="cadastrando" class="form-field">
     <input [(ngModel)]="produto.categoria" placeholder="Insira a categoria" type="text">
     <input [(ngModel)]="produto.nome" placeholder="Insira nome do produto" type="text">
     <input [(ngModel)]="produto.quantidade" placeholder="Insira a quantidade" type="number" min="1">
     <input [(ngModel)]="produto.descricao" placeholder="Insira a descrição" type="text" maxlength="60">
     <input [(ngModel)]="produto.tamanho" placeholder="Insira o tamanho" type="text">
-    
+    <input type="file" (change)="inputFileChange($event)">
     <button (click)="cadastrar(produto)">Cadastrar</button>
-    
+</div>
+
+<div>
+    <ul id="estoque-list">
+        <h2>Gerenciamento de Estoque</h2>
+        <li *ngFor="let prods of produtos; let i = index">
+            <div class="info-box">
+                <img src="../../assets/produto1.jpg">
+
+                <div class="produto-nome">
+                    <h5>{{prods.nome}}</h5>
+                    <h6>{{prods.categoria}}</h6>
+                    <p>{{prods.descricao}}</p>
+                </div>
+
+                <div class="produto-editar">
+                    <button (click)="aumentarUnidade(i)" class="mais-btn">+</button>
+                    <span>{{prods.quantidade}}</span>
+                    <button (click)="diminuirUnidade(i)" class="menos-btn">-</button>
+                    <button (click)="editarProduto(i)" class="edt-btn">Editar</button>
+                    <button (click)="deletar(i)" class="rmv-btn">Excluir</button>
+                </div>
+            </div>
+
+            <div *ngIf="editar[i]" class="edit-box">
+                <input class="edit-field" type="text" placeholder="Alterar nome"  value={{prods.nome}}>
+                <input class="edit-field" type="text" placeholder="Alterar descrição" value={{prods.descricao}}>
+                <input class="edit-field" type="text" placeholder="Alterar categoria" value={{prods.categoria}}>
+                <button>Finalizar mudanças</button>
+
+            </div>
+        </li>
+    </ul>
 </div>

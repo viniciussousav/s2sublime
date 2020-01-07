@@ -26,6 +26,10 @@ export class GaleriaComponent implements OnInit {
     this.queryResult = this.produtoService.getProdutosByCategoria(categoria);
   }
 
+  selectProduct(i:number){
+    console.log(this.queryResult[i]);
+  }
+
   listCategorias(): string[] {
     let categorias: string[] = this.produtoService.getCategorias();
     for (let i = 0; i < categorias.length; i++) {

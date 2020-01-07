@@ -12,15 +12,15 @@ export class ProdutosService {
   constructor() {
     //Template pra testes
     var a: Produto = new Produto();
-    a.create("Caneca do papai", 0,"A caneca do seu veio", "U","Caneca");
+    a.create("Caneca do papai", 0,"A caneca do seu veio", "U","Caneca",null);
     var b: Produto = new Produto();
-    b.create("Camisa da mamãe", 1,"A camisa de amor da mamãe", "M","Camisa");
+    b.create("Camisa da mamãe", 1,"A camisa de amor da mamãe", "M","Camisa",null);
     var c: Produto = new Produto();
-    c.create("Caneca do bigode",1,"Aquele bigode que você respeita", "U","Caneca");
+    c.create("Caneca do bigode",1,"Aquele bigode que você respeita", "U","Caneca",null);
     var d: Produto = new Produto();
-    d.create("Quadro de natal", 1,"Deixe seu Natal mais bonito", "U","Quadro");
+    d.create("Quadro de natal", 1,"Deixe seu Natal mais bonito", "U","Quadro",null);
     var e: Produto = new Produto();
-    e.create("Copo da barbie",  1,"Para você beber com estilo", "U","Copo"); 
+    e.create("Copo da barbie",  1,"Para você beber com estilo", "U","Copo",null); 
     this.produtos = [a,b,c,d,e];
   }
 
@@ -57,4 +57,16 @@ export class ProdutosService {
     return this.produtos.filter(produto => produto.categoria.toLowerCase() == categoria.toLowerCase());
   }
 
+  deleteProduto(index: number){
+    this.produtos.splice(index, 1);
+  }
+
+  decreaseProduto(index: number){
+    if(this.produtos[index].getQuantidade() > 0)
+      this.produtos[index].setQuantidade(this.produtos[index].getQuantidade() - 1);
+  }
+  
+  increaseProduto(index: number){
+    this.produtos[index].setQuantidade(this.produtos[index].getQuantidade() + 1);
+  }
 }
