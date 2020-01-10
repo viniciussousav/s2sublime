@@ -16,7 +16,7 @@ export class ProdutosComponent implements OnInit {
   consulta: string;
   editar: boolean[];
   cadastrando: boolean;
-
+  edtProduto: Produto = new Produto();
   constructor(private produtoService:ProdutosService) { 
       this.produtos = this.produtoService.getProdutos();
       this.categorias = this.produtoService.getCategorias();
@@ -50,6 +50,15 @@ export class ProdutosComponent implements OnInit {
     this.produtos = this.produtoService.getProdutos();
     this.categorias = this.produtoService.getCategorias();
     this.editar.splice(index, 1);
+  }
+
+  atualizar(index:number){
+    this.produtoService.editarProduto(this.edtProduto, index);
+    this.produtos = this.produtoService.getProdutos();
+    for(let i = 0; i < this.produtos.length; i++){
+      this.editar[i] = false;
+    }
+    this.edtProduto = new Produto();
   }
 
   aumentarUnidade(index: number){

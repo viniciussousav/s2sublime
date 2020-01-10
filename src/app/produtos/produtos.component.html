@@ -37,10 +37,10 @@
             </div>
 
             <div *ngIf="editar[i]" class="edit-box">
-                <input class="edit-field" type="text" placeholder="Alterar nome"  value={{prods.nome}}>
-                <input class="edit-field" type="text" placeholder="Alterar descrição" value={{prods.descricao}}>
-                <input class="edit-field" type="text" placeholder="Alterar categoria" value={{prods.categoria}}>
-                <button>Finalizar mudanças</button>
+                <input [(ngModel)]="edtProduto.nome" class="edit-field" type="text" placeholder="Alterar nome">
+                <input [(ngModel)]="edtProduto.descricao" class="edit-field" type="text" placeholder="Alterar descrição">
+                <input [(ngModel)]="edtProduto.categoria" class="edit-field" type="text" placeholder="Alterar categoria">
+                <button (click) = "atualizar(i)">Finalizar mudanças</button>
 
             </div>
         </li>

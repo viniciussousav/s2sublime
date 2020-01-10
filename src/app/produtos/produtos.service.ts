@@ -61,11 +61,23 @@ export class ProdutosService {
     this.produtos.splice(index, 1);
   }
 
+  editarProduto(produtoEditado: Produto, index: number){
+    if(produtoEditado.categoria.length != 0){
+      this.produtos[index].setCategoria(produtoEditado.getCategoria());
+    }
+    if(produtoEditado.descricao.length != 0){
+      this.produtos[index].setDescricao(produtoEditado.getDescricao());
+    }
+    if(produtoEditado.nome.length != 0){
+      this.produtos[index].setNome(produtoEditado.getNome());
+    }
+  }
+
   decreaseProduto(index: number){
     if(this.produtos[index].getQuantidade() > 0)
       this.produtos[index].setQuantidade(this.produtos[index].getQuantidade() - 1);
   }
-  
+
   increaseProduto(index: number){
     this.produtos[index].setQuantidade(this.produtos[index].getQuantidade() + 1);
   }
